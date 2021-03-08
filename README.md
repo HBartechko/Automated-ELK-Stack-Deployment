@@ -60,11 +60,13 @@ _Note: Use the [Markdown Table Generator](http://www.tablesgenerator.com/markdow
 The machines on the internal network are not exposed to the public Internet. 
 
 Only the Public IP address from local workstation can accept connections from the Internet. Access to this machine is only allowed from the following IP addresses:
-- Add whitelisted IP addresses: Public IP address from local workstation. 
+- Add whitelisted IP addresses: 
+- Public IP address from local workstation. 
 
 Machines within the network can only be accessed by Jump Box VM:.
-- TODO: Which machine did you allow to access your ELK VM? What was its IP address?
--Jump Box VM: VNET IP 10.0.0.4
+- Which machine did you allow to access your ELK VM? What was its IP address?
+- Jump Box: VNET IP 10.0.0.7
+
 A summary of the access policies in place can be found in the table below.
 
 | Name     | Publicly Accessible | Allowed IP Addresses |
@@ -80,7 +82,8 @@ Ansible was used to automate configuration of the ELK machine. No configuration 
 - Answer: No code experience is need and it simplifies deployment of VMs
 
 The playbook implements the following tasks:
-- In 3-5 bullets, explain the steps of the ELK installation play. E.g., install Docker; download image; etc.
+
+In 3-5 bullets, explain the steps of the ELK installation play. E.g., install Docker; download image; etc.
 - Create a new VM for ELK
 - Add the new VM to Ansible hosts file in your provisioner.
 - Create an Ansible playbook that installs Docker and configures an ELK container.
@@ -93,31 +96,35 @@ The following screenshot displays the result of running `docker ps` after succes
 
 ### Target Machines & Beats
 This ELK server is configured to monitor the following machines:
-- List the IP addresses of the machines you are monitoring
+List the IP addresses of the machines you are monitoring
 - 10.0.0.4, 10.0.0.5, 10.0.0.6, 10.1.0.4
+
 We have installed the following Beats on these machines:
-- Specify which Beats you successfully installed
+Specify which Beats you successfully installed
 - Filebeats and Metricbeats
 
 These Beats allow us to collect the following information from each machine:
-- In 1-2 sentences, explain what kind of data each beat collects, and provide 1 example of what you expect to see. E.g., `Winlogbeat` collects Windows logs, which we use to track user logon events, etc.
-- Filebeat collects the changes done on any files
+In 1-2 sentences, explain what kind of data each beat collects, and provide 1 example of what you expect to see. E.g., `Winlogbeat` collects Windows logs, which we use to track user logon events, etc.
+- Filebeat logs the changes done on any files
 - Metric beat collects metrics and statistics
 
 ### Using the Playbook
 In order to use the playbook, you will need to have an Ansible control node already configured. Assuming you have such a control node provisioned: 
 
 SSH into the control node and follow the steps below:
-- Copy the ELK_Stack_install.yml file to  /etc/ansible/elk_install.yml.
-- Update the hosts file to include
-[elk} 10.1.0.4 ansible_python_interpreter_=/usr/bin/python3
+- Copy the _elk_install.yml_ file to  _/etc/ansible/elk_install.yml_.
+- Update the _hosts_ file to include
+_[elk} 10.1.0.4 ansible_python_interpreter_=/usr/bin/python3
 - Run the playbook, and navigate to http://52.177.223.47:5601/app/kibana to check that the installation worked as expected.
 
-_TODO: Answer the following questions to fill in the blanks:_
-- _Which file is the playbook?_ Where do you copy it?_ _/etc/ansible/file/filebeat-config.yml
+Answer the following questions to fill in the blanks:_
+- _Which file is the playbook?_ Where do you copy it? 
+- Answer: _/etc/ansible/file/filebeat-config.yml_
 
-- _Which file do you update to make Ansible run the playbook on a specific machine?_ How do I specify which machine to install the ELK server on versus which to install Filebeat on? _ nano the /etc/ansible/host file to add <ip address> ansible_python_interpreter=/usr/bin/python3 to [webserver]or [elk] _
-- _Which URL do you navigate to in order to check that the ELK server is running? http://52.177.223.47:5601/app/kibana_
+- _Which file do you update to make Ansible run the playbook on a specific machine?_ How do I specify which machine to install the ELK server on versus which to install Filebeat on?
+- Anwser: nano the _/etc/ansible/host_ file to add _ip address ansible_python_interpreter=/usr/bin/python3_ to _[webserver]or [elk]_
+- _Which URL do you navigate to in order to check that the ELK server is running? 
+- Answer: http://52.177.223.47:5601/app/kibana
 
 _As a **Bonus**, provide the specific commands the user will need to run to download the playbook, update the files, etc._
 ansible-playbook filebeat-playbook.yml
