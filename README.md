@@ -71,9 +71,12 @@ A summary of the access policies in place can be found in the table below.
 
 | Name     | Publicly Accessible | Allowed IP Addresses |
 |----------|---------------------|----------------------|
-| Jump Box | No              | 10.0.0.1 10.0.0.2    |
-|          |                     |                      |
-|          |                     |                      |
+| Jump Box | No                  | Local Workstation IP   |
+| ELK Stack| No                  |  10.0.0.7              |
+| Web-1    | No                  |  10.0.0.7              |
+| Web-2    | No                  |  10.0.0.7 |
+| Web-3    | No                  | 10.0.0.7|
+
 
 ### Elk Configuration
 
