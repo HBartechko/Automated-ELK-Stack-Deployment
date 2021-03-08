@@ -15,7 +15,7 @@ These files have been tested and used to generate a live ELK deployment on Azure
 - ![filebeat_playbook.yml](https://github.com/Wtaoist9/GitHub-Fundamentals-HWK13/blob/main/ansible/filebeat_playbook.yml)
 - ![metricbeat-config.yml](https://github.com/Wtaoist9/GitHub-Fundamentals-HWK13/blob/main/ansible/metricbeat-config.yml)
 - ![metricbeat.yml](https://github.com/Wtaoist9/GitHub-Fundamentals-HWK13/blob/main/ansible/metricbeat.yml)
-- ![metricbeat_playbook.yml](https://github.com/Wtaoist9/GitHub-Fundamentals-HWK13/blob/main/ansible/metricbeat_plabook.y)
+- ![metricbeat_playbook.yml](https://github.com/Wtaoist9/GitHub-Fundamentals-HWK13/blob/main/ansible/metricbeat_plabook.yml)
 
 This document contains the following details:
 - Description of the Topology
