@@ -131,51 +131,36 @@ _As a **Bonus**, provide the specific commands the user will need to run to down
 For Filebeat playbook
 
 - Part 1: Installing Filebeat on the DVWA Container
-1.	First, make sure that the ELK server container is up and running:
-o	Navigate to http://[your.VM.IP]:5601/app/kibana. Use the public IP address of the ELK server that you created.
-o	Click 'Explore on my Own'
-o	If you do not see the Kibana server landing page, open a terminal on your computer and SSH into the ELK server.
-	Run docker container list -a to verify that the container is on.
-	If it isn't, run sudo docker start elk.
-2.	Use the ELK server's GUI to begin installing Filebeat on your DVWA VM.
-o	Navigate to your ELK server's IP address:
-	Click Add Log Data.
-	Choose System Logs.
-	Click on the DEB tab under Getting Started.
-o	Here you will find the most up-to-date Filebeat installation instructions for Linux.
- 
-o	Note that you do not need to do anything on this page. Since Filebeat is open source, it is updated frequently. Therefore, specific details around installation can change. This site will always have the most up-to-date instructions.
-Part 2: Creating the Filebeat Configuration File
-3.	Next, we will create a Filebeat configuration file, after which we will create the Ansible playbook file.
-o	At that point, we will translate the instructions in the DEB tab into a new Ansible play, which you will use to automatically install Filebeat on your DVWA machines.
-	Translating installation instructions to reusable playbooks is a common task for modern infrastructure teams. Being able to explain the value of this task and the plays you've created will be valuable in job interviews.
-	Creating this play will allow you to easily install Filebeat on any machine you want to monitor later, whether for class, work, or a personal project.
-o	Open a terminal and SSH into your jump box:
-	Start the Ansible container.
-	Use the correct Docker command to attach to your Ansible container.
-o	As mentioned earlier, the Filebeat installation instructions require you to create a Filebeat configuration file.
-	You will need to edit this file so that it has the correct settings to work with your ELK server.
-•	You can use the provided template for the Filebeat configuration file:
-o	Filebeat Configuration File Template.
-	Note that when text is copy and pasted from the web into your terminal, formatting differences are likely to occur that will corrupt this configuration file.
-•	Using curl is a better way to avoid errors and we have the file hosted for public download HERE
-o	Run: curl https://gist.githubusercontent.com/slape/5cc350109583af6cbe577bbcc0710c93/raw/eca603b72586fbe148c11f9c87bf96a63cb25760/Filebeat > /etc/ansible/files/filebeat-config.yml 
-•	 root@6160a9be360e:/etc/ansible# curl https://gist.githubusercontent.com/slape/5cc350109583af6cbe577bbcc0710c93/raw/eca603b72586fbe148c11f9c87bf96a63cb25760/Filebeat > filebeat-config.yml
-•	   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
-•	                                 Dload  Upload   Total   Spent    Left  Speed
- 100 73112  100 73112    0     0   964k      0 --:--:-- --:--:-- --:--:--  964k
-4.	Once you have this file on your Ansible container, edit it as specified:
-o	The username is elastic and the password is changeme.
-o	Scroll to line #1106 and replace the IP address with the IP address of your ELK machine.
-o	output.elasticsearch:
-o	hosts: ["10.1.0.4:9200"]
-o	username: "elastic"
-password: "changeme"
-o	Scroll to line #1806 and replace the IP address with the IP address of your ELK machine.
-o	setup.kibana:
-host: "10.1.0.4:5601"
-o	Note that the default credentials are elastic:changeme and should not be changed at this step.
-o	Save this file in /etc/ansible/files/filebeat-config.yml.
+- Make sure that the ELK server container is up and running:
+- Navigate to http://[your.VM.IP]:5601/app/kibana. Use the public IP address of the ELK server that you created.
+- Click 'Explore on my Own'
+--If you do not see the Kibana server landing page, open a terminal on your computer and SSH into the ELK server.
+- Run docker container list -a to verify that the container is on.
+--If it isn't, run sudo docker start elk.
+-Use the ELK server's GUI to begin installing Filebeat on your DVWA VM.
+--Navigate to your ELK server's IP address:
+- Click Add Log Data.
+--Choose System Logs.
+- Click on the DEB tab under Getting Started.
+- 
+- Part 2: Creating the Filebeat Configuration File
+- Open a terminal and SSH into your jump box:
+- Start the Ansible container.
+- Use the correct Docker command to attach to your Ansible container.
+-	Run: curl https://gist.githubusercontent.com/slape/5cc350109583af6cbe577bbcc0710c93/raw/eca603b72586fbe148c11f9c87bf96a63cb25760/Filebeat > /etc/ansible/files/filebeat-config.yml 
+-- root@6160a9be360e:/etc/ansible# curl https://gist.githubusercontent.com/slape/5cc350109583af6cbe577bbcc0710c93/raw/eca603b72586fbe148c11f9c87bf96a63cb25760/Filebeat > filebeat-config.yml
+
+- Once you have this file on your Ansible container, edit it as specified:
+-- The username is elastic and the password is changeme.
+-- Scroll to line #1106 and replace the IP address with the IP address of your ELK machine.
+-- output.elasticsearch:
+-- hosts: ["10.1.0.4:9200"]
+-- username: "elastic"
+-- password: "changeme"
+-- Scroll to line #1806 and replace the IP address with the IP address of your ELK machine.
+-- setup.kibana:
+-- host: "10.1.0.4:5601"
+- Save this file in /etc/ansible/files/filebeat-config.yml.
 Part 3: Creating the Filebeat Installation Play
 5.	Next, create a new playbook that installs Filebeat and then copies the Filebeat configuration file you just made to the correct location.
 o	On the Ansible VM, create a playbook file, filebeat-playbook.yml.
