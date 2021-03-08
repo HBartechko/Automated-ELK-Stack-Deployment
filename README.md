@@ -31,16 +31,16 @@ This document contains the following details:
 The main purpose of this network is to expose a load-balanced and monitored instance of DVWA, the D*mn Vulnerable Web Application.
 
 Load balancing ensures that the application will be highly available, in addition to restricting access to the network.
-- _What aspect of security do load balancers protect?_ 
-  _Answer: Load balancers availability of the security triad. Load balancers add redundacy._
-- _What is the advantage of a jump box?_
-- _Answer: A Jump box provides a secure gateway to a network._
+- What aspect of security do load balancers protect?
+- Answer: Load balancers availability of the security triad. Load balancers add redundacy.
+- What is the advantage of a jump box?
+- Answer: A Jump box provides a secure gateway to a network.
 
 Integrating an ELK server allows users to easily monitor the vulnerable VMs for changes to the data and system logs.
-- _What does Filebeat watch for?_
-- _Answer: Filebeat monitors the log files or locations that you specify, collects log events, and forwards them either to Elasticsearch or Logstash for indexing._
-- _What does Metricbeat record?_
-- _Answer: Metricbeat takes the metrics and statistics that it collects and ships them to the output that you specify, such as Elasticsearch or Logstash._
+- What does Filebeat watch for?
+- Answer: Filebeat monitors the log files or locations that you specify, collects log events, and forwards them either to Elasticsearch or Logstash for indexing.
+- What does Metricbeat record?
+- Answer: Metricbeat takes the metrics and statistics that it collects and ships them to the output that you specify, such as Elasticsearch or Logstash.
 
 The configuration details of each machine may be found below.
 _Note: Use the [Markdown Table Generator](http://www.tablesgenerator.com/markdown_tables) to add/remove values from the table_.
@@ -60,11 +60,11 @@ _Note: Use the [Markdown Table Generator](http://www.tablesgenerator.com/markdow
 The machines on the internal network are not exposed to the public Internet. 
 
 Only the Public IP address from local workstation can accept connections from the Internet. Access to this machine is only allowed from the following IP addresses:
-- _Add whitelisted IP addresses: Public IP address from local workstation _
+- Add whitelisted IP addresses: Public IP address from local workstation. 
 
 Machines within the network can only be accessed by Jump Box VM:.
-- _TODO: Which machine did you allow to access your ELK VM? What was its IP address?_
--_Jump Box VM: VNET IP 10.0.0.4
+- TODO: Which machine did you allow to access your ELK VM? What was its IP address?
+-Jump Box VM: VNET IP 10.0.0.4
 A summary of the access policies in place can be found in the table below.
 
 | Name     | Publicly Accessible | Allowed IP Addresses |
@@ -76,16 +76,16 @@ A summary of the access policies in place can be found in the table below.
 ### Elk Configuration
 
 Ansible was used to automate configuration of the ELK machine. No configuration was performed manually, which is advantageous because...
-- _What is the main advantage of automating configuration with Ansible?_
-- _Answer: No code experience is need and it simplifies deployment of VMs_
+- What is the main advantage of automating configuration with Ansible?
+- Answer: No code experience is need and it simplifies deployment of VMs
 
 The playbook implements the following tasks:
-- _ In 3-5 bullets, explain the steps of the ELK installation play. E.g., install Docker; download image; etc._
-- _Create a new VM for ELK_
-- _Add the new VM to Ansible hosts file in your provisioner_
-- _Create an Ansible playbook that installs Docker and configures an ELK container_
-- _Run the playbook to launch the container_
-- _Restrict access to the ELK VM_
+- In 3-5 bullets, explain the steps of the ELK installation play. E.g., install Docker; download image; etc.
+- Create a new VM for ELK
+- Add the new VM to Ansible hosts file in your provisioner.
+- Create an Ansible playbook that installs Docker and configures an ELK container.
+- Run the playbook to launch the container
+- Restrict access to the ELK VM
 
 The following screenshot displays the result of running `docker ps` after successfully configuring the ELK instance.
 
@@ -93,16 +93,16 @@ The following screenshot displays the result of running `docker ps` after succes
 
 ### Target Machines & Beats
 This ELK server is configured to monitor the following machines:
-- _List the IP addresses of the machines you are monitoring_
-- _10.0.0.4, 10.0.0.5, 10.0.0.6, 10.1.0.4_
+- List the IP addresses of the machines you are monitoring
+- 10.0.0.4, 10.0.0.5, 10.0.0.6, 10.1.0.4
 We have installed the following Beats on these machines:
-- _Specify which Beats you successfully installed_
-- _Filebeats and Metricbeats_
+- Specify which Beats you successfully installed
+- Filebeats and Metricbeats
 
 These Beats allow us to collect the following information from each machine:
-- _TODO: In 1-2 sentences, explain what kind of data each beat collects, and provide 1 example of what you expect to see. E.g., `Winlogbeat` collects Windows logs, which we use to track user logon events, etc._
-Filebeat collects the changes done on any files
-Metric beat collects metrics and statistics
+- In 1-2 sentences, explain what kind of data each beat collects, and provide 1 example of what you expect to see. E.g., `Winlogbeat` collects Windows logs, which we use to track user logon events, etc.
+- Filebeat collects the changes done on any files
+- Metric beat collects metrics and statistics
 
 ### Using the Playbook
 In order to use the playbook, you will need to have an Ansible control node already configured. Assuming you have such a control node provisioned: 
