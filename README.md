@@ -2,7 +2,7 @@
 
 The files in this repository were used to configure the network depicted below.
 
-![Elk Stack Deployment]( https://github.com/Wtaoist9/GitHub-Fundamentals-HWK13/blob/main/Diagrams/ELK%20Stack%20Deployment.png)
+![Elk Stack Deployment](https://github.com/Wtaoist9/GitHub-Fundamentals-HWK13/blob/main/Diagrams/ELK%20Stack%20Deployment.png )
 
 
 These files have been tested and used to generate a live ELK deployment on Azure. They can be used to either recreate the entire deployment pictured above. Alternatively, select portions of the Ansible file may be used to install only certain pieces of it, such as Filebeat.
