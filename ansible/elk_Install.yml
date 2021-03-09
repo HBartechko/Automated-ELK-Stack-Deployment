@@ -53,5 +53,5 @@
       # Use systemd module
     - name: Enable service docker on boot
       systemd:
-        name: ocker
+        name: docker
         enabled: yes
