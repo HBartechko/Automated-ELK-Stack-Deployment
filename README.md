@@ -140,6 +140,6 @@ For Filebeat playbook
 - curl https://github.com/Wtaoist9/GitHub-Fundamentals-HWK13/blob/main/ansible/filebeat-config.yml > /etc/ansible/files/filebeat-config.yml
 - cd /etc/ansible/roles
 - curl https://github.com/Wtaoist9/GitHub-Fundamentals-HWK13/blob/main/ansible/filebeat_playbook.yml > /etc/ansible/roles/filebeatt_playbook.yml
-- ansible-playbook filebeat_playbook.yml
+- Run: ansible-playbook filebeat_playbook.yml
 - curl http://<ELK.VM.External.IP>:5601/app/kibana 
 
